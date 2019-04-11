@@ -1,0 +1,34 @@
+@startuml
+
+actor Registered_User #red
+database User_Database
+participant System
+activate Registered_User
+activate System
+Registered_User -> System : Login
+return Show Login Page
+deactivate System
+Registered_User -> User_Database :Login with Credintials
+activate User_Database
+User_Database -> User_Database : Search Database
+return Result
+activate System
+Registered_User-> System : Upload File
+activate User_Database
+System -> User_Database : Save Uploaded File
+User_Database->System: Show Files on Interface
+Registered_User-> System : Download File
+
+System -> User_Database : Select the File to Download
+
+User_Database -> Registered_User : File Downloaded
+deactivate User_Database
+Registered_User -> System : Edit Profile 
+System ->User_Database : Profile Changes
+activate User_Database
+return Changes in the Profile
+
+deactivate System
+deactivate Registered_User
+
+@enduml

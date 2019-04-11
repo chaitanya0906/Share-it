@@ -1,0 +1,20 @@
+to start xampp:(before this install xampp)
+cd /opt/lampp/
+sudo chmod 755 manager-linux-x64.run
+sudo ./manager-linux-x64.run  
+
+sudo service mysql stop   //when sql is not starting
+/*
+sudo service mysql stop
+sudo /opt/lampp/lampp restart
+*/
+sudo apt-get install libmysql-java  // install connector driver if not present
+export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar  // jdbc connector (use before starting)
+
+
+make database on local using xampp and php myadmin    DB name=userdata  table name=logindata
+sno (auto  incriment) primary key
+username
+password
+
+
